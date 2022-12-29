@@ -29,7 +29,7 @@ export const DetailsPage = () => {
         CATEGORY_TYPE[item.category]
       }`}
     >
-      <h3>{item.title}</h3>
+      <h3 data-testid="title">{item.title}</h3>
       <div className="details-page__description flex">
         <img
           className="details-page__image"

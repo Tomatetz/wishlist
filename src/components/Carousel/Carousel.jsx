@@ -16,7 +16,7 @@ export const Carousel = ({ items }) => {
       return [
         ...out,
         <Link
-          to={`/${items[index].id}`}
+          to={`/product/${items[index].id}`}
           key={i}
           className="item"
           style={{

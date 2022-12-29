@@ -16,14 +16,18 @@ const App = () => {
             Home
           </Link>
           {wishlist.length ? (
-            <Link className="my-wishlist" to="/wishlist">
+            <Link
+              className="my-wishlist"
+              to="/wishlist"
+              data-testid="wishlist-link"
+            >
               My wishlist ({wishlist.length})
             </Link>
           ) : null}
         </div>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/:id" element={<DetailsPage />} />
+          <Route path="/product/:id" element={<DetailsPage />} />
           <Route path="/wishlist" element={<WishlistPage />} />
         </Routes>
       </Router>
