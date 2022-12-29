@@ -1,5 +1,5 @@
 import React from "react";
-import { UserContext } from "@Context";
+import { UserContext } from "@Context/";
 import { WishlistPage } from "./WishlistPage.jsx";
 import { fireEvent, render, screen } from "@testing-library/react";
 

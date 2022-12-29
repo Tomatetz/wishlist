@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router";
 import { APITransport } from "@Api/ApiTransport.js";
-import { UserContext } from "@Context";
+import { UserContext } from "@Context/";
 import { Loader } from "./Loader";
 import "./components.scss";
 

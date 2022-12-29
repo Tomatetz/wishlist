@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { UserContext } from "@Context/UserContext.js";
+import { UserContext } from "@Context/";
 import { DetailsPage } from "./DetailsPage.jsx";
 import { render, screen, fireEvent } from "@testing-library/react";
 
