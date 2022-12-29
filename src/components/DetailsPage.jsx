@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router";
 import { APITransport } from "@Api/ApiTransport.js";
-import { UserContext } from "@Context/UserContext.js";
+import { UserContext } from "@Context";
 import { Loader } from "./Loader";
 import "./components.scss";
 
@@ -40,7 +40,7 @@ export const DetailsPage = () => {
           {item.description}
           {wishlist.some(({ id: wishlistItemId }) => wishlistItemId === id) ? (
             <div
-              className="wishlist-button"
+              className="wishlist__button"
               onClick={() =>
                 setWishlist(
                   wishlist.filter(
@@ -53,7 +53,7 @@ export const DetailsPage = () => {
             </div>
           ) : (
             <div
-              className="wishlist-button"
+              className="wishlist__button"
               onClick={() => setWishlist([...wishlist, item])}
             >
               Add to wishlist

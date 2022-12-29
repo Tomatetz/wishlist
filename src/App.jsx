@@ -1,37 +1,31 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { UserContext } from "@Context/UserContext.js";
-import { Home } from "./components/Home.jsx";
-import { DetailsPage } from "./components/DetailsPage.jsx";
-import { WishlistPage } from "./components/WishlistPage.jsx";
+import { UserContext } from "@Context";
 import { Link } from "react-router-dom";
+import { DetailsPage, WishlistPage, HomePage } from "./components";
 
 const App = () => {
   const [wishlist, setWishlist] = useState([]);
   return (
-    <UserContext.Provider value={{ wishlist, setWishlist }}>
-      <Router>
+    <Router>
+      <UserContext.Provider value={{ wishlist, setWishlist }}>
         <div className="page-header flex flex-center justify-between w-100">
-          <Link className="home-button" to="/">
+          <Link className="home__button" to="/">
             Home
           </Link>
           {wishlist.length ? (
-            <Link
-              className="my-wishlist"
-              to="/wishlist"
-              data-testid="wishlist-link"
-            >
+            <Link className="my-wishlist" to="/wishlist">
               My wishlist ({wishlist.length})
             </Link>
           ) : null}
         </div>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/product/:id" element={<DetailsPage />} />
           <Route path="/wishlist" element={<WishlistPage />} />
         </Routes>
-      </Router>
-    </UserContext.Provider>
+      </UserContext.Provider>
+    </Router>
   );
 };
 

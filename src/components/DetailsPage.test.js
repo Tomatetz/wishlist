@@ -35,7 +35,7 @@ describe("DetailsPage test", () => {
     expect(title).toHaveTextContent("First");
 
     const addToWishlistButton =
-      container.getElementsByClassName("wishlist-button")[0];
+      container.getElementsByClassName("wishlist__button")[0];
     fireEvent.click(addToWishlistButton);
     expect(setWishlist).toBeCalledWith([
       {

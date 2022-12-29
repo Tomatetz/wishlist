@@ -4,7 +4,7 @@ import "./components.scss";
 import { Carousel } from "./Carousel";
 import { Loader } from "./Loader";
 
-export const Home = () => {
+export const HomePage = () => {
   const [categories, setCategories] = useState({});
   useEffect(() => {
     APITransport.fetchList().then(setCategories);
@@ -14,7 +14,7 @@ export const Home = () => {
     <div className="home-page flex">
       {Object.keys(categories).length ? (
         <>
-          <div className="categories-list">
+          <div className="categories__list">
             <ul>
               {Object.entries(categories).map(([category, items]) => (
                 <li className="flex flex-column" key={category}>
@@ -25,7 +25,7 @@ export const Home = () => {
             </ul>
           </div>
           <div className="align-center w-100">
-            <h2>Some promo text</h2>
+            <h2 data-testid="text">Some promo text</h2>
           </div>
         </>
       ) : (

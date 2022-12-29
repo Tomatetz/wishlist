@@ -1,34 +1,23 @@
 const path = require("path");
-const camelcase = require("camelcase");
+const babel = require("@babel/core");
+const reactPreset = require("@babel/preset-react");
 
 module.exports = {
   process(src, filename) {
-    const assetFilename = JSON.stringify(path.basename(filename));
-    if (filename.match(/\.svg$/)) {
-      const pascalCaseFilename = camelcase(path.parse(filename).name, {
-        pascalCase: true,
-      });
-      const componentName = `Svg${pascalCaseFilename}`;
-      return {
-        code: `const React = require('react');
-  module.exports = {
-    __esModule: true,
-    default: ${assetFilename},
-    ReactComponent: React.forwardRef(function ${componentName}(props, ref) {
-      return {
-        $$typeof: Symbol.for('react.element'),
-        type: 'svg',
-        ref: ref,
-        key: null,
-        props: Object.assign({}, props, {
-          children: ${assetFilename}
-        })
-      };
-    }),
-  };`,
-      };
-    }
-
-    return `module.exports = ${assetFilename};`;
+    const code = babel.transform(
+      `
+        import React from 'react'; 
+        export default () => (<svg data-filename="${path.relative(
+          process.cwd(),
+          filename
+        )}" />);
+      `,
+      {
+        filename,
+        presets: [reactPreset],
+        retainLines: true,
+      }
+    ).code;
+    return code;
   },
 };

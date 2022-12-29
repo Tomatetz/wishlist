@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { UserContext } from "@Context/UserContext.js";
+import { UserContext } from "@Context";
 import "./components.scss";
 
 export const WishlistPage = () => {
