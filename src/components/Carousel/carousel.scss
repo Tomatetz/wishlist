@@ -1,0 +1,41 @@
+.carousel {
+  position: relative;
+  height: 200px;
+}
+
+.arrow {
+  cursor: pointer;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 50%;
+  stroke: #228291;
+  z-index: 1000;
+  &:hover {
+    background: #dfdfdf;
+  }
+  > svg {
+    height: 30px;
+    width: 30px;
+  }
+  &.arrow-right {
+    right: 0;
+    transform: rotate(180deg);
+  }
+}
+
+.item {
+  height: 150px;
+  border-bottom: 1px solid #dfdfdf;
+  padding: 8px;
+  transition: all 0.2s ease-in;
+  &:hover {
+    border-color: #1a9fc7;
+    border-width: 3px;
+  }
+  > img {
+    height: 100%;
+    width: 100%;
+  }
+}
