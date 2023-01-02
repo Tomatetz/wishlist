@@ -1,11 +1,14 @@
 {
   "scripts": {
-    "serve": "webpack serve --mode development",
-    "test": "jest --coverage --silent=false",
-    "build": "webpack --mode production"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "jest --coverage --silent=false --watch"
   },
   "dependencies": {
     "axios": "^1.2.1",
+    "next": "^13.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.6.1"
@@ -20,6 +23,8 @@
     "babel-jest": "^29.3.1",
     "babel-loader": "^9.1.0",
     "css-loader": "^6.7.3",
+    "eslint": "8.31.0",
+    "eslint-config-next": "13.1.1",
     "html-webpack-plugin": "^5.5.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.3.1",

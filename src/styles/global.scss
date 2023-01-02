@@ -33,17 +33,3 @@ ul {
 .align-center {
   text-align: center;
 }
-.page-header {
-  padding: 16px 32px;
-  background: #dfdfdf;
-  box-sizing: border-box;
-  border-bottom: 1px solid #9b9b9b;
-  .home__button {
-    color: #04518a;
-    text-decoration: none;
-    padding: 8px 16px;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-}

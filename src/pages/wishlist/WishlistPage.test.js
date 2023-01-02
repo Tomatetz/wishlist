@@ -1,6 +1,6 @@
 import React from "react";
-import { UserContext } from "@Context/";
-import { WishlistPage } from "./WishlistPage.jsx";
+import { UserContext } from "@Context/UserContext.js";
+import WishlistPage from "./index.js";
 import { fireEvent, render, screen } from "@testing-library/react";
 
 const customRender = (ui, { providerProps }) => {
@@ -30,15 +30,15 @@ describe("WishlistPage test", () => {
     };
     const { container } = customRender(<WishlistPage />, { providerProps });
     expect(await screen.findByText("My wishlist")).toBeInTheDocument();
-    expect(container.getElementsByClassName("wishlist-item").length).toBe(2);
+    expect(container.getElementsByClassName("wishlist_item").length).toBe(2);
     expect(
-      container.getElementsByClassName("wishlist-remove__button").length
+      container.getElementsByClassName("wishlist_remove__button").length
     ).toBe(2);
     const removeButton = container.getElementsByClassName(
-      "wishlist-remove__button"
+      "wishlist_remove__button"
     )[0];
     expect(
-      container.getElementsByClassName("wishlist-item")[0].querySelector("span")
+      container.getElementsByClassName("wishlist_item")[0].querySelector("span")
         .innerHTML
     ).toBe("First");
     fireEvent.click(removeButton);

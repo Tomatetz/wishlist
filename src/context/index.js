@@ -1,1 +1,1 @@
-export { UserContext } from "./UserContext.js";
+export { UserContext, useUserContext } from "./UserContext.js";

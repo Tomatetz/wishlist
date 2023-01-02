@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from "react";
+import styles from "@Styles/Components.module.scss";
 import { APITransport } from "@Api/ApiTransport.js";
-import "./components.scss";
-import { Carousel } from "./Carousel";
-import { Loader } from "./Loader";
+import { Carousel } from "@Components/Carousel";
+import { Loader } from "@Components/Loader";
 
-export const HomePage = () => {
+const HomePage = () => {
   const [categories, setCategories] = useState({});
   useEffect(() => {
     APITransport.fetchList().then(setCategories);
   }, []);
-
   return (
-    <div className="home-page flex">
+    <div className={`${styles.home_page} flex`}>
       {Object.keys(categories).length ? (
         <>
-          <div className="categories__list">
+          <div className={styles.categories_list}>
             <ul>
               {Object.entries(categories).map(([category, items]) => (
                 <li className="flex flex-column" key={category}>
@@ -34,3 +33,4 @@ export const HomePage = () => {
     </div>
   );
 };
+export default HomePage;

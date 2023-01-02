@@ -1,0 +1,109 @@
+$link-color: #04518a;
+$border-color-default: #9b9b9b;
+$background-default: #fff;
+$background-secondary: #dfdfdf;
+$gap: (
+  s: 16px,
+  m: 32px,
+);
+$categories-font: (
+  "1": "PT Mono",
+  "2": Sevillana,
+  "3": "Source Code Pro",
+  "4": Roboto,
+);
+@each $category, $font in $categories-font {
+  .category-#{$category} {
+    font-family: $font;
+  }
+}
+
+.categories_list {
+  max-width: 600px;
+  padding: 30px 150px;
+  background: $background-default;
+  border-right: 1px solid $border-color-default;
+  user-select: none;
+}
+.page_content {
+  gap: map-get($gap, m);
+}
+.page_description {
+  gap: map-get($gap, s);
+}
+.details_page__longtext {
+  gap: map-get($gap, m);
+  max-width: 450px;
+  padding: 8px 16px;
+  background: $background-default;
+}
+.details_page__image {
+  padding: 32px;
+  background: $background-default;
+}
+.wishlist__link {
+  cursor: pointer;
+  text-decoration: none;
+  color: #565656;
+  &:hover {
+    text-decoration: underline;
+    color: $link-color;
+  }
+}
+.wishlist__button {
+  cursor: pointer;
+  padding: 8px 16px;
+  border: 1px solid $border-color-default;
+  text-align: center;
+  background: $background-secondary;
+  &:hover {
+    color: $link-color;
+  }
+}
+.page_header {
+  padding: 16px 32px;
+  background: $background-secondary;
+  box-sizing: border-box;
+  border-bottom: 1px solid $border-color-default;
+}
+
+.page_header__button {
+  color: $link-color;
+  text-decoration: none;
+  padding: 8px 16px;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.wishlist_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  display: flex;
+  > div {
+    gap: map-get($gap, s);
+  }
+  img {
+    height: 40px;
+    width: 40px;
+  }
+}
+.wishlist {
+  width: 500px;
+  background: $background-default;
+  padding: 20px;
+}
+.wishlist_remove__button {
+  background: none;
+  border: none;
+  color: #bd5050;
+  font-size: 12px;
+  cursor: pointer;
+  &:hover {
+    color: #820505;
+  }
+}
+.home_page {
+  gap: map-get($gap, m);
+}

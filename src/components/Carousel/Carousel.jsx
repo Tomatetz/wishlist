@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import ArrowLeft from "@Assets/icons/arrow-left.svg";
-import { Link } from "react-router-dom";
-import "./carousel.scss";
+import ArrowLeft from "src/assets/icons/arrow-left.svg";
+import Link from "next/link";
+import styles from "@Styles/Carousel.module.scss";
+import Image from "next/image";
 
 const ITEMS_IN_CAROUSEL = 5;
 const MEDIAN = Math.floor(ITEMS_IN_CAROUSEL / 2);
@@ -15,17 +16,18 @@ export const Carousel = ({ items }) => {
       const index = shift < 0 ? shift + items.length : shift % items.length;
       return [
         ...out,
-        <Link
-          to={`/product/${items[index].id}`}
+        <div
           key={i}
-          className="item"
+          className={styles.item}
           style={{
             left: `${(i * 100) / ITEMS_IN_CAROUSEL}%`,
             width: `${100 / ITEMS_IN_CAROUSEL}%`,
           }}
         >
-          <img src={items[index].image} alt={items[index].title} />
-        </Link>,
+          <Link href={`/product/${items[index].id}`}>
+            <Image src={items[index].image} alt={items[index].title} fill />
+          </Link>
+        </div>,
       ];
     }, []);
     return inner;
@@ -40,12 +42,15 @@ export const Carousel = ({ items }) => {
   };
 
   return (
-    <div className="carousel w-100 flex flex-center">
-      <div className="arrow arrow-left" onClick={moveLeft}>
+    <div className={`${styles.carousel} w-100 flex flex-center`}>
+      <div className={styles.arrow} onClick={moveLeft}>
         <ArrowLeft />
       </div>
       {generateInner()}
-      <div className="arrow arrow-right" onClick={moveRight}>
+      <div
+        className={`${styles.arrow} ${styles.arrow_right}`}
+        onClick={moveRight}
+      >
         <ArrowLeft />
       </div>
     </div>

@@ -8,6 +8,7 @@ module.exports = {
     "^@Api/(.*)$": "<rootDir>/src/api/$1",
     "^@Context/(.*)$": "<rootDir>/src/context/$1",
     "^@Assets/(.*)$": "<rootDir>/src/assets/$1",
+    "^@Components/(.*)$": "<rootDir>/src/components/$1",
     "\\.(css|sass|scss)$": "identity-obj-proxy",
     // "\\.svg$": "<rootDir>/jest-svg-transformer.js",
   },
